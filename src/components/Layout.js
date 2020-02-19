@@ -1,18 +1,10 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import { Helmet } from "react-helmet"
 import { createGlobalStyle } from "styled-components"
 import Nav from "./Nav"
 // import Footer from "./Footer"
 
 const Layout = ({ children }) => {
-  const [opacity, setOpacity] = useState(false)
-
-  useEffect(() => {
-    setInterval(() => {
-      setOpacity(!opacity)
-    }, 1000 * 20)
-  }, [opacity, setOpacity])
-
   return (
     <>
       <Helmet title="[Mark O'Neill]" defer={false}>
@@ -21,9 +13,9 @@ const Layout = ({ children }) => {
           rel="stylesheet"
         />
       </Helmet>
-      <GlobalStyle opacity={opacity} />
+      <GlobalStyle />
       <main>
-        <Nav opacity={opacity} />
+        <Nav />
         <div id="main-content">{children}</div>
       </main>
     </>
@@ -39,35 +31,14 @@ const GlobalStyle = createGlobalStyle`
     padding: 0; 
     min-height: 100vh;
     font-family: 'Open Sans', sans-serif;
+    background: white;
+    overflow-x: hidden;
   }
 
   :root {
     --text-size: 14px;
     --main-colour: #004374;
     --secondary-colour: #797979;
-  }
-
-  main::after,
-  main::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    min-height: 100vh;
-    width: 100%;
-    transition: all 15s;
-  }
-
-  main::after {
-    background: linear-gradient(90deg, rgba(95,192,223,1) 0%, rgba(255,192,192,1) 100%);
-    opacity: ${({ opacity }) => (opacity ? "1" : "0")};
-  }
-
-  main::before {
-    background: linear-gradient(90deg, rgba(255,192,192,1) 0%, rgba(95,192,223,1) 100%);
-    opacity: ${({ opacity }) => (opacity ? "0" : "1")};
   }
 
   main {

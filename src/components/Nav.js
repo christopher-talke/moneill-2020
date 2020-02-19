@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 const Nav = ({ opacity }) => {
   return (
-    <StyledNav opacity={opacity}>
+    <StyledNav>
       <div id="logo">Mark O'Neill</div>
       <div id="hamburger">
         <div>|||</div>
@@ -23,7 +23,6 @@ const StyledNav = styled.nav`
   #logo {
     background: white;
     transition: color 15s;
-    color: ${({ opacity }) => (opacity ? "#7bc3dd" : "#fcc5c6")};
     width: fit-content;
     padding: 7.5px;
     font-size: 22px;
@@ -33,7 +32,6 @@ const StyledNav = styled.nav`
   #hamburger {
     background: white;
     transition: color 15s;
-    color: ${({ opacity }) => (opacity ? "#fcc5c6" : "#7bc3dd")};
     letter-spacing: -5px;
     width: fit-content;
     padding: 7.5px;

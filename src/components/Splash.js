@@ -37,12 +37,30 @@ const Splash = () => {
 }
 
 const StyledSplash = styled.section`
+  position: relative;
+  z-index: 50;
+
+  /* Circle for Splash */
+  &::before {
+    position: absolute;
+    content: "";
+    height: 500px;
+    width: 500px;
+    right: -75%;
+    top: 30.5%;
+    border-radius: 50%;
+    background: rgba(159, 218, 237, 0.15);
+    z-index: 25;
+  }
+
   & > div:nth-of-type(1) {
     display: flex;
     justify-content: center;
   }
 
   & img {
+    position: relative;
+    z-index: 50;
     object-fit: cover;
     height: 360px;
     width: 260px;
@@ -50,6 +68,8 @@ const StyledSplash = styled.section`
   }
 
   #splash-info {
+    position: relative;
+    z-index: 25;
     margin: 25px 0;
     font-size: 14px;
     font-weight: 400;
@@ -82,6 +102,13 @@ const StyledSplash = styled.section`
 
   @media (min-width: 1025px) {
     display: flex;
+
+    &::before {
+      height: 900px;
+      width: 900px;
+      right: -42.5%;
+      top: -65%;
+    }
 
     & img {
       width: 425px;
