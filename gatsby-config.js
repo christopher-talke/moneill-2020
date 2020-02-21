@@ -1,14 +1,30 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.org/docs/gatsby-config/
- */
+require("dotenv").config({
+  path: `.env`,
+})
 
 module.exports = {
   plugins: [
-    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-styled-components`,
     },
+    {
+      resolve: "gatsby-source-graphql",
+      options: {
+        typeName: "WP",
+        fieldName: "wp",
+        url: `${process.env.WORDPRESS_URL}/graphql`,
+        refetchInterval: 30,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/assets/images`,
+      },
+    },
+    `gatsby-plugin-react-helmet`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
   ],
 }

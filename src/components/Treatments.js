@@ -1,14 +1,33 @@
-import React, { useState, useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import styled from "styled-components"
 import Treatment from "./Treatment"
-import { treatmentData } from "../Mock.js"
 
-const Treatments = () => {
+const Treatments = ({ data }) => {
   const [treatments, setTreatments] = useState([])
 
   useEffect(() => {
-    setTreatments(treatmentData)
-  }, [])
+    const {
+      clairvoyantblurb,
+      clairvoyanttitle,
+      clairvoyantlogo,
+      counsellingblurb,
+      counsellingtitle,
+      counsellinglogo,
+      herbalismblurb,
+      herbalismtitle,
+      herbalismlogo,
+      hypnotherapyTitle,
+      hypnotherapyblurb,
+      hypnotherapylogo,
+    } = data.servicesgroup
+
+    setTreatments([
+      { clairvoyantblurb, clairvoyanttitle, clairvoyantlogo },
+      { counsellingblurb, counsellingtitle, counsellinglogo },
+      { herbalismblurb, herbalismtitle, herbalismlogo },
+      { hypnotherapyTitle, hypnotherapyblurb, hypnotherapylogo },
+    ])
+  }, [data, setTreatments])
 
   return (
     <StyledTreatments>

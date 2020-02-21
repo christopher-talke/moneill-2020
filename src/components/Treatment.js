@@ -1,18 +1,22 @@
 import React from "react"
+import Img from "gatsby-image"
 import styled from "styled-components"
 import { Link } from "gatsby"
 
 export const Treatment = ({ treatment }) => {
+  console.log(treatment)
+
   return (
     <StyledTreatment>
-      <div className="treatment-heading">
+      {/* <div className="treatment-heading">
+        <Img />
         <h3>{treatment.title}</h3>
       </div>
       <div
         className="treatment-blurb"
         dangerouslySetInnerHTML={{ __html: treatment.blurb }}
       />
-      <Link>Read More</Link>
+      <Link>Read More</Link> */}
     </StyledTreatment>
   )
 }

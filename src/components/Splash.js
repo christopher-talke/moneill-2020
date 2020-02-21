@@ -1,33 +1,24 @@
 import React from "react"
+import Img from "gatsby-image/withIEPolyfill"
 import styled from "styled-components"
 import Button from "./Button"
 
-const Splash = () => {
+const Splash = ({ data }) => {
   return (
     <StyledSplash>
       <div>
-        <img
-          src="http://www.markoneill.com.au/wp-content/uploads/2018/10/profile_contact.jpg"
-          alt="mark-oneill"
+        <Img
+          fixed={data.mainimage.imageFile.childImageSharp.fixed}
+          objectFit="cover"
+          objectPosition="50% 50%"
+          alt=""
         />
       </div>
       <div id="splash-info-container">
         <div id="splash-info">
           <p className="text-thin">Hi there,</p>
           <h1>I'm Mark O'Neill</h1>
-          <div>
-            <p>
-              I am an Intuitive Herbalist, Clairvoyant, Medium, Counsellor and
-              Hypnotherapist. For 30 years I have used my abilities to assist my
-              clients to heal themselves.
-            </p>
-            <p>
-              I have owned and operated 5 clinics seeing 100,000 clients from
-              all walks of life from around the world. Given the advances in
-              technology I can now reach a wider more like minded global
-              community.
-            </p>
-          </div>
+          <div dangerouslySetInnerHTML={{ __html: data.mainblurb }}></div>
           <Button dark>See My Treatments</Button>
           <Button>Contact Me</Button>
         </div>
@@ -58,12 +49,13 @@ const StyledSplash = styled.section`
     justify-content: center;
   }
 
+  & .gatsby-image-wrapper,
   & img {
     position: relative;
     z-index: 50;
-    object-fit: cover;
-    height: 360px;
-    width: 260px;
+    /* object-fit: cover; */
+    height: 360px !important;
+    width: 260px !important;
     box-shadow: -2px 4px 6px 0px rgb(184, 184, 184);
   }
 
@@ -110,9 +102,10 @@ const StyledSplash = styled.section`
       top: -65%;
     }
 
+    & .gatsby-image-wrapper,
     & img {
-      width: 425px;
-      height: 600px;
+      width: 425px !important;
+      height: 600px !important;
     }
 
     #splash-info-container {
