@@ -35,60 +35,18 @@ export const query = graphql`
         }
         homeServices {
           servicesgroup {
-            clairvoyantblurb
-            clairvoyanttitle
-            clairvoyantlogo {
+            servicetitle
+            serviceblurb
+            servicelogo {
               sourceUrl
               imageFile {
                 childImageSharp {
-                  fixed(width: 75, height: 75) {
+                  fixed(width: 40, height: 40) {
                     ...GatsbyImageSharpFixed
                   }
                 }
               }
             }
-            counsellingblurb
-            counsellingtitle
-            counsellinglogo {
-              sourceUrl
-              imageFile {
-                childImageSharp {
-                  fixed(width: 75, height: 75) {
-                    ...GatsbyImageSharpFixed
-                  }
-                }
-              }
-            }
-            herbalismblurb
-            herbalismtitle
-            herbalismlogo {
-              sourceUrl
-              imageFile {
-                childImageSharp {
-                  fixed(width: 75, height: 75) {
-                    ...GatsbyImageSharpFixed
-                  }
-                }
-              }
-            }
-            hypnotherapyTitle
-            hypnotherapyblurb
-            hypnotherapylogo {
-              sourceUrl
-              imageFile {
-                childImageSharp {
-                  fixed(width: 75, height: 75) {
-                    ...GatsbyImageSharpFixed
-                  }
-                }
-              }
-            }
-          }
-        }
-        homeClientFeedback {
-          clientfeedback {
-            fullname
-            feedback
           }
         }
       }

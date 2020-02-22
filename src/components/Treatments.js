@@ -1,37 +1,11 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import styled from "styled-components"
 import Treatment from "./Treatment"
 
 const Treatments = ({ data }) => {
-  const [treatments, setTreatments] = useState([])
-
-  useEffect(() => {
-    const {
-      clairvoyantblurb,
-      clairvoyanttitle,
-      clairvoyantlogo,
-      counsellingblurb,
-      counsellingtitle,
-      counsellinglogo,
-      herbalismblurb,
-      herbalismtitle,
-      herbalismlogo,
-      hypnotherapyTitle,
-      hypnotherapyblurb,
-      hypnotherapylogo,
-    } = data.servicesgroup
-
-    setTreatments([
-      { clairvoyantblurb, clairvoyanttitle, clairvoyantlogo },
-      { counsellingblurb, counsellingtitle, counsellinglogo },
-      { herbalismblurb, herbalismtitle, herbalismlogo },
-      { hypnotherapyTitle, hypnotherapyblurb, hypnotherapylogo },
-    ])
-  }, [data, setTreatments])
-
   return (
     <StyledTreatments>
-      {treatments.map(treatment => (
+      {data.servicesgroup.map(treatment => (
         <Treatment treatment={treatment} />
       ))}
     </StyledTreatments>
