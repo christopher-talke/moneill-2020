@@ -22,6 +22,7 @@ const StyledTreatments = styled.section`
   grid-column-gap: 150px;
   grid-row-gap: 70px;
   margin: 100px auto;
+  padding: 0 25px;
   max-width: 1150px;
 
   &::before {
@@ -40,7 +41,7 @@ const StyledTreatments = styled.section`
     &::before {
       height: 900px;
       width: 900px;
-      right: 57.5%;
+      right: 80%;
       top: -10%;
     }
     grid-template-columns: repeat(2, 1fr);

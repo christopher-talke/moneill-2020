@@ -29,9 +29,10 @@ const Splash = ({ data }) => {
 
 const StyledSplash = styled.section`
   position: relative;
+  padding: 50px 25px;
+  padding-bottom: 0;
   z-index: 50;
 
-  /* Circle for Splash */
   &::before {
     position: absolute;
     content: "";

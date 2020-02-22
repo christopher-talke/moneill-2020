@@ -25,12 +25,15 @@ export default Feedback
 const StyledFeedback = styled.section`
   position: relative;
   z-index: 50;
+  padding: 0 25px;
+  margin-bottom: 100px;
   width: 100%;
 
   .client-feedback-card {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    max-width: 295px;
     padding: 35px;
     border: 1px solid #eaeaea;
     text-align: center;
@@ -59,6 +62,8 @@ const StyledFeedback = styled.section`
   }
 
   @media (min-width: 1025px) {
+    padding: 0;
+
     .feedback-container {
       display: flex;
       max-width: 1150px;
