@@ -4,8 +4,6 @@ import styled from "styled-components"
 import { Link } from "gatsby"
 
 export const Treatment = ({ treatment }) => {
-  console.log(treatment)
-
   return (
     <StyledTreatment>
       <div className="treatment-heading">

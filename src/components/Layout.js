@@ -2,7 +2,7 @@ import React from "react"
 import { Helmet } from "react-helmet"
 import { createGlobalStyle } from "styled-components"
 import Nav from "./Nav"
-// import Footer from "./Footer"
+import "react-responsive-carousel/lib/styles/carousel.min.css"
 
 const Layout = ({ children }) => {
   return (
@@ -35,6 +35,11 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
   }
 
+  body {
+    position: relative;
+    overflow-x: hidden;
+  }
+
   :root {
     --text-size: 14px;
     --main-colour: #004374;
@@ -51,16 +56,11 @@ const GlobalStyle = createGlobalStyle`
     position: relative;
     z-index: 50;
     background: white;
-    width: 325px;
-    padding: 50px 25px 50px 25px;
-    margin: 0px auto 150px auto;
   }
 
   @media (min-width: 1025px) {
     #main-content {
       background: white;
-      width: 1150px;
-      padding: 75px;
     }
   }
 `

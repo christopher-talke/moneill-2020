@@ -16,7 +16,7 @@ const StyledNav = styled.nav`
   position: relative;
   z-index: 50;
   width: 375px;
-  margin: 40px auto;
+  margin: 20px auto;
   display: flex;
   justify-content: space-between;
 

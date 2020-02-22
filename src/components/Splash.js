@@ -94,6 +94,8 @@ const StyledSplash = styled.section`
 
   @media (min-width: 1025px) {
     display: flex;
+    max-width: 1150px;
+    margin: 0 auto;
 
     &::before {
       height: 900px;

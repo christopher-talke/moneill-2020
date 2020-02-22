@@ -49,6 +49,12 @@ export const query = graphql`
             }
           }
         }
+        homeClientFeedback {
+          clientfeedback {
+            feedback
+            fullname
+          }
+        }
       }
     }
   }
