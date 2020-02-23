@@ -4,14 +4,21 @@ import Layout from "../components/Layout"
 import Splash from "../components/Splash"
 import Treatments from "../components/Treatments"
 import Feedback from "../components/Feedback"
+import Informational from "../components/Informational"
 
 export default ({ data }) => {
-  const { homeLanding, homeServices, homeClientFeedback } = data.wp.page
+  const {
+    homeLanding,
+    homeServices,
+    homeClientFeedback,
+    homeInformationalSection,
+  } = data.wp.page
   return (
     <Layout>
       <Splash data={homeLanding} />
       <Treatments data={homeServices} />
       <Feedback data={homeClientFeedback} />
+      <Informational data={homeInformationalSection} />
     </Layout>
   )
 }
@@ -53,6 +60,16 @@ export const query = graphql`
           clientfeedback {
             feedback
             fullname
+          }
+        }
+        homeInformationalSection {
+          infosections {
+            title
+            orientation
+            blurb
+            link
+            linktest
+            href
           }
         }
       }

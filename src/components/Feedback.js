@@ -2,7 +2,6 @@ import React from "react"
 import styled from "styled-components"
 
 const Feedback = ({ data }) => {
-  console.log(data)
   return (
     <StyledFeedback>
       <div className="feedback-container">
