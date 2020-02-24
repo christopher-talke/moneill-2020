@@ -76,4 +76,7 @@ const StyledTreatment = styled.div`
       margin-left: 12.5px;
     }
   }
+
+
+  
 `

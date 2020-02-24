@@ -19,11 +19,10 @@ const StyledTreatments = styled.section`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(4, 1fr);
-  grid-column-gap: 150px;
+  grid-column-gap: 100px;
   grid-row-gap: 70px;
   margin: 100px auto;
   padding: 0 25px;
-  max-width: 1150px;
 
   &::before {
     position: absolute;
@@ -38,6 +37,8 @@ const StyledTreatments = styled.section`
   }
 
   @media (min-width: 1025px) {
+    max-width: 950px;
+
     &::before {
       height: 900px;
       width: 900px;

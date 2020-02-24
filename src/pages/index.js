@@ -70,6 +70,16 @@ export const query = graphql`
             link
             linktest
             href
+            image {
+              sourceUrl
+              imageFile {
+                childImageSharp {
+                  fluid {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
+            }
           }
         }
       }
