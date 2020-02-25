@@ -5,6 +5,7 @@ import Splash from "../components/Splash"
 import Treatments from "../components/Treatments"
 import Feedback from "../components/Feedback"
 import Informational from "../components/Informational"
+import RemotePricing from "../components/RemotePricing"
 
 export default ({ data }) => {
   const {
@@ -12,6 +13,7 @@ export default ({ data }) => {
     homeServices,
     homeClientFeedback,
     homeInformationalSection,
+    homeRemoteSupportPricing,
   } = data.wp.page
   return (
     <Layout>
@@ -19,6 +21,7 @@ export default ({ data }) => {
       <Treatments data={homeServices} />
       <Feedback data={homeClientFeedback} />
       <Informational data={homeInformationalSection} />
+      <RemotePricing data={homeRemoteSupportPricing} />
     </Layout>
   )
 }
@@ -81,6 +84,20 @@ export const query = graphql`
               }
             }
           }
+        }
+        homeRemoteSupportPricing {
+          blurb
+          fieldGroupName
+          pricecards {
+            title
+            price
+            preblurb
+            inclusions {
+              inclusion
+            }
+            postblurb
+          }
+          title
         }
       }
     }

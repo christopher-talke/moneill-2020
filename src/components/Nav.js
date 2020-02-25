@@ -13,7 +13,7 @@ const Nav = ({ opacity }) => {
 }
 
 const StyledNav = styled.nav`
-  position: relative;
+  position: sticky;
   z-index: 50;
   width: 375px;
   margin: 20px auto;
@@ -30,6 +30,7 @@ const StyledNav = styled.nav`
   }
 
   #hamburger {
+    right: 0;
     background: white;
     transition: color 15s;
     letter-spacing: -5px;

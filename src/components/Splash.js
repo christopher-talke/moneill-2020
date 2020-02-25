@@ -1,4 +1,5 @@
 import React from "react"
+import Vector from "../assets/images/vector_1.svg"
 import Img from "gatsby-image/withIEPolyfill"
 import styled from "styled-components"
 import Button from "./Button"
@@ -31,18 +32,20 @@ const StyledSplash = styled.section`
   position: relative;
   padding: 50px 25px;
   padding-bottom: 0;
-  z-index: 50;
+  z-index: 40;
 
   &::before {
     position: absolute;
-    content: "";
-    height: 500px;
-    width: 500px;
-    right: -75%;
-    top: 30.5%;
-    border-radius: 50%;
-    background: rgba(159, 218, 237, 0.15);
     z-index: 25;
+    content: "";
+    height: 750px;
+    width: 750px;
+    top: -100px;
+    right: -75px;
+    display: none; /* Temporary */
+    background-image: url(${Vector});
+    background-size: contain;
+    background-repeat: no-repeat;
   }
 
   & > div:nth-of-type(1) {
@@ -54,7 +57,6 @@ const StyledSplash = styled.section`
   & img {
     position: relative;
     z-index: 50;
-    /* object-fit: cover; */
     height: 360px !important;
     width: 260px !important;
     box-shadow: -2px 4px 6px 0px rgb(184, 184, 184);
@@ -101,8 +103,7 @@ const StyledSplash = styled.section`
     &::before {
       height: 900px;
       width: 900px;
-      right: -42.5%;
-      top: -65%;
+      z-index: 25;
     }
 
     & .gatsby-image-wrapper,

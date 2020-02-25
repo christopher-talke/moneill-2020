@@ -58,6 +58,20 @@ const GlobalStyle = createGlobalStyle`
     background: white;
   }
 
+  h3 {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+  }
+
+  p {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    margin-bottom: 25px;
+  }
+
   @media (min-width: 1025px) {
     #main-content {
       background: white;

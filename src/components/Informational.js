@@ -62,20 +62,6 @@ const StyledInformationCard = styled.div`
   .info-section-info {
     grid-area: 2 / 1 / 3 / 2;
 
-    h3 {
-      font-family: Open Sans;
-      font-style: normal;
-      font-weight: normal;
-      font-size: 24px;
-    }
-
-    div {
-      font-style: normal;
-      font-weight: 300;
-      font-size: 14px;
-      margin-bottom: 25px;
-    }
-
     a {
       color: #009ccd;
       text-decoration: none;
