@@ -24,27 +24,9 @@ const StyledTreatments = styled.section`
   margin: 100px auto;
   padding: 0 25px;
 
-  &::before {
-    position: absolute;
-    content: "";
-    height: 1250px;
-    width: 500px;
-    right: 55%;
-    top: 10%;
-    border-radius: 50%;
-    background: rgba(159, 218, 237, 0.15);
-    z-index: 25;
-  }
-
   @media (min-width: 1025px) {
     max-width: 950px;
 
-    &::before {
-      height: 900px;
-      width: 900px;
-      right: 80%;
-      top: -10%;
-    }
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
   }

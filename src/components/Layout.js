@@ -2,6 +2,8 @@ import React from "react"
 import { Helmet } from "react-helmet"
 import { createGlobalStyle } from "styled-components"
 import Nav from "./Nav"
+import Footer from "./Footer"
+
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 
 const Layout = ({ children }) => {
@@ -17,6 +19,7 @@ const Layout = ({ children }) => {
       <main>
         <Nav />
         <div id="main-content">{children}</div>
+        <Footer />
       </main>
     </>
   )
