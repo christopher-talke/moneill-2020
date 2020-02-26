@@ -52,6 +52,7 @@ const GlobalStyle = createGlobalStyle`
   main {
     position: absolute;
     min-height: 100%;
+    max-width: 100vw;
     min-width: 100%;
   }
 

@@ -7,6 +7,8 @@ const Feedback = ({ data }) => {
       <div className="feedback-container">
         {data.clientfeedback.map((client, key) => (
           <div
+            // Temporary Only
+            style={key > 2 ? { display: "none" } : {}}
             className="client-feedback-card"
             key={`${client.fullname}-${key}`}
           >

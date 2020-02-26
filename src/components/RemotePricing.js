@@ -37,6 +37,13 @@ const RemotePricing = ({ data }) => {
           </StyledPricingCard>
         ))}
       </div>
+      <p className="pricing-info">
+        All pricing is inclusive of package handling and shipping. Methods of
+        shipping vary depending on requirements, we typically operate with
+        standard shipping if other methods are required additional fees may
+        apply express, overnight, etc). International orders may require an
+        additional 3-5 business days of processing time prior to shipment.
+      </p>
     </StyledPricingCards>
   )
 }
@@ -54,6 +61,14 @@ const StyledPricingCards = styled.section`
       max-width: 525px;
       margin: 0 auto;
     }
+  }
+
+  .pricing-info {
+    font-size: 12px;
+    color: gray;
+    max-width: 650px;
+    text-align: center;
+    margin: 0 auto;
   }
 
   .pricingCards {
