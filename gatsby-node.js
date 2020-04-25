@@ -15,7 +15,6 @@ exports.createResolvers = async ({
       imageFile: {
         type: "File",
         async resolve(source) {
-
           let sourceUrl = source.sourceUrl
 
           if (source.mediaItemUrl !== undefined) {

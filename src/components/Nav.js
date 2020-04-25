@@ -30,6 +30,7 @@ const StyledNav = styled.nav`
   }
 
   #hamburger {
+    display: none;
     right: 0;
     background: white;
     transition: color 15s;

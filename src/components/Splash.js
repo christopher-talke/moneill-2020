@@ -20,8 +20,12 @@ const Splash = ({ data }) => {
           <p className="text-thin">Hi there,</p>
           <h1>I'm Mark O'Neill</h1>
           <div dangerouslySetInnerHTML={{ __html: data.mainblurb }}></div>
-          <Button dark>See My Treatments</Button>
-          <Button>Contact Me</Button>
+          <a href="#my-treatments">
+            <Button dark>See My Treatments</Button>
+          </a>
+          <a id="contact-me-button" href="#contact-me">
+            <Button>Contact Me</Button>
+          </a>
         </div>
       </div>
     </StyledSplash>
@@ -86,11 +90,11 @@ const StyledSplash = styled.section`
     }
   }
 
-  & button:nth-of-type(1) {
+  & a:nth-of-type(1) {
     margin-top: 15px;
   }
 
-  & button:nth-of-type(2) {
+  #contact-me-button button {
     margin-top: 15px;
     margin-left: 130px;
   }
@@ -127,8 +131,7 @@ const StyledSplash = styled.section`
         font-size: 43px;
       }
 
-      button:nth-of-type(2) {
-        margin-top: 0px;
+      #contact-me-button button {
         margin-left: 15px;
       }
     }

@@ -36,6 +36,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Open Sans', sans-serif;
     background: white;
     overflow-x: hidden;
+    scroll-behavior: smooth;
   }
 
   body {

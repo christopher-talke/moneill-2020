@@ -5,7 +5,7 @@ import Button from "./Button"
 
 const ContactForm = () => {
   return (
-    <StyledContactSection>
+    <StyledContactSection id="contact-me">
       <h3>Get in touch with me</h3>
       <div className="blurb">
         <p>

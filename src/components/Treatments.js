@@ -4,7 +4,16 @@ import Treatment from "./Treatment"
 
 const Treatments = ({ data }) => {
   return (
-    <StyledTreatments>
+    <StyledTreatments id="my-treatments">
+      <div id="titlecontainer">
+        <h3>My Treatments</h3>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ultrices
+          interdum finibus. Nulla facilisi. Suspendisse nisl magna, hendrerit a
+          purus et, sodales sodales tellus. Proin augue ligula, fringilla non
+          elementum vel, finibus vitae tortor.
+        </p>
+      </div>
       {data.servicesgroup.map(treatment => (
         <Treatment treatment={treatment} />
       ))}
@@ -18,16 +27,31 @@ const StyledTreatments = styled.section`
   position: relative;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-rows: repeat(5, auto);
   grid-column-gap: 100px;
-  grid-row-gap: 70px;
   margin: 100px auto;
   padding: 0 25px;
 
-  @media (min-width: 1025px) {
-    max-width: 950px;
+  div#titlecontainer {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    text-align: center;
+    max-width: 525px;
+    margin: 0 auto;
+    margin-bottom: 25px;
+  }
 
+  @media (min-width: 1025px) {
+    div#titlecontainer {
+      grid-column-end: 3;
+      text-align: center;
+      max-width: 525px;
+      margin: 0 auto;
+      margin-bottom: 25px;
+    }
+
+    max-width: 950px;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: auto auto auto;
   }
 `

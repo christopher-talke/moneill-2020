@@ -33,7 +33,11 @@ const RemotePricing = ({ data }) => {
               className="preBlurb"
               dangerouslySetInnerHTML={{ __html: value.postblurb }}
             />
-            <Button dark>Book Session</Button>
+            <a
+              href={`https://www.paypal.com/cgi-bin/webscr?business=mark@chamberlaincottage.com&cmd=_xclick&currency_code=USD&amount=${value.price}&item_name=${value.title}`}
+            >
+              <Button dark>Book Session</Button>
+            </a>
           </StyledPricingCard>
         ))}
       </div>
