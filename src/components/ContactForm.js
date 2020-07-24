@@ -7,14 +7,7 @@ const ContactForm = () => {
   return (
     <StyledContactSection id="contact-me">
       <h3>Get in touch with me</h3>
-      <div className="blurb">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis, sunt.
-          Fuga culpa eos quas veritatis ex qui asperiores! Labore alias
-          praesentium voluptatibus laudantium quis perspiciatis, unde blanditiis
-          neque odit eum.
-        </p>
-      </div>
+
       <StyledContactForm action="" method="post">
         <div className="form-input-group">
           <label htmlFor="fullName">Full Name</label>
