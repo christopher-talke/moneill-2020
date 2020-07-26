@@ -7,7 +7,7 @@ const Button = ({ children, dark }) => {
 
 const StyledButton = styled.button`
   height: 40px;
-  min-width: 200px;
+  min-width: 100px;
   font-weight: 300;
   font-size: 16px;
   padding: 5px 20px;

@@ -6,7 +6,7 @@ import Footer from "./Footer"
 
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, toHome }) => {
   return (
     <>
       <Helmet title="[Mark O'Neill]" defer={false}>
@@ -17,7 +17,7 @@ const Layout = ({ children }) => {
       </Helmet>
       <GlobalStyle />
       <main>
-        <Nav />
+        <Nav toHome={toHome} />
         <div id="main-content">{children}</div>
         <Footer />
       </main>

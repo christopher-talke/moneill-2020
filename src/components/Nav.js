@@ -1,12 +1,25 @@
 import React from "react"
 import styled from "styled-components"
+import { Link } from "gatsby"
 
-const Nav = ({ opacity }) => {
+import Button from "../components/Button"
+
+const Nav = ({ opacity, toHome }) => {
+  console.log(toHome)
+
   return (
     <StyledNav>
       <div id="logo">Mark O'Neill</div>
-      <div id="hamburger">
-        <div>|||</div>
+      <div>
+        {toHome ? (
+          <Link to="/">
+            <Button dark>Home</Button>
+          </Link>
+        ) : (
+          <Link to="/pay-online">
+            <Button dark>Pay Online</Button>
+          </Link>
+        )}
       </div>
     </StyledNav>
   )

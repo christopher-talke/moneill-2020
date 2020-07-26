@@ -16,7 +16,7 @@ export default ({ data }) => {
     homeRemoteSupportPricing,
   } = data.wp.page
   return (
-    <Layout>
+    <Layout toHome={false}>
       <Splash data={homeLanding} />
       <Treatments data={homeServices} />
       <Feedback data={homeClientFeedback} />

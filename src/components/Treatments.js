@@ -7,12 +7,6 @@ const Treatments = ({ data }) => {
     <StyledTreatments id="my-treatments">
       <div id="titlecontainer">
         <h3>My Treatments</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ultrices
-          interdum finibus. Nulla facilisi. Suspendisse nisl magna, hendrerit a
-          purus et, sodales sodales tellus. Proin augue ligula, fringilla non
-          elementum vel, finibus vitae tortor.
-        </p>
       </div>
       {data.servicesgroup.map(treatment => (
         <Treatment treatment={treatment} />
