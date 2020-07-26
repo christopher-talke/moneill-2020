@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet"
 import { createGlobalStyle } from "styled-components"
 import Nav from "./Nav"
 import Footer from "./Footer"
+import Notification from "./Notification"
 
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 
@@ -17,6 +18,7 @@ const Layout = ({ children, toHome }) => {
       </Helmet>
       <GlobalStyle />
       <main>
+        <Notification />
         <Nav toHome={toHome} />
         <div id="main-content">{children}</div>
         <Footer />

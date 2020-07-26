@@ -1,8 +1,13 @@
 import React from "react"
 import styled from "styled-components"
 
-const Button = ({ children, dark }) => {
-  return <StyledButton dark={dark}>{children}</StyledButton>
+const Button = props => {
+  const { children, dark } = props
+  return (
+    <StyledButton dark={dark} {...props}>
+      {children}
+    </StyledButton>
+  )
 }
 
 const StyledButton = styled.button`
