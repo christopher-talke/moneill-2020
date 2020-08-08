@@ -34,7 +34,6 @@ const StyledFeedback = styled.section`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    max-width: 295px;
     padding: 35px;
     border: 1px solid #eaeaea;
     text-align: center;
@@ -58,29 +57,25 @@ const StyledFeedback = styled.section`
     }
   }
 
-  .client-feedback-card:nth-of-type(2) {
-    margin: 50px 0;
-  }
-
   @media (min-width: 1025px) {
     padding: 0;
 
     .feedback-container {
-      display: flex;
+      display: grid;
+      grid-template-rows: 1fr;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-column-gap: 20px;
+      grid-row-gap: 0px;
       max-width: 1150px;
       margin: 0 auto;
     }
 
     .client-feedback-card {
-      max-width: 350px;
+      min-width: 275px;
 
       p {
         font-size: 14px;
       }
-    }
-
-    .client-feedback-card:nth-of-type(2) {
-      margin: 0 50px;
     }
   }
 `

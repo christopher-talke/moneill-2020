@@ -10,14 +10,15 @@ const Notification = () => {
     if (health !== "understood") {
       setShow(true)
     }
-  }, [])
+  }, [show])
 
   if (show === false) {
     return ""
   }
 
   return (
-    <StyledNotification show={show}>
+    <StyledNotification id="notification-bar" show={show}>
+      {console.log(show)}
       <div>
         <p>
           The contents of the Mark O'Neill site is not intended to be a
@@ -31,7 +32,7 @@ const Notification = () => {
         </p>
         <Button
           onClick={() => {
-            setShow(true)
+            document.getElementById("notification-bar").style.display = "none"
             localStorage.setItem("health-notification", "understood")
           }}
         >

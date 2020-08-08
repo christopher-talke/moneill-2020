@@ -63,7 +63,7 @@ const StyledNav = styled.nav`
   }
 
   @media (min-width: 1025px) {
-    width: 1300px;
+    width: 1150px;
     #logo,
     #hamburger {
       font-size: 26px;

@@ -15,8 +15,10 @@ const RemotePricing = ({ data }) => {
       <div className="pricingCards">
         {data.pricecards.map((value, index) => (
           <StyledPricingCard key={`${value.title}-${index}`}>
-            <h3>{value.title}</h3>
-            <h5>${value.price} (USD)</h5>
+            <div>
+              <h3>{value.title}</h3>
+              <h5>${value.price} (USD)</h5>
+            </div>
             <div
               className="preBlurb"
               dangerouslySetInnerHTML={{ __html: value.preblurb }}
@@ -102,6 +104,7 @@ const StyledPricingCards = styled.section`
 const StyledPricingCard = styled.article`
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   max-width: 285px;
   padding: 45px;
   border: 1px solid #eaeaea;
