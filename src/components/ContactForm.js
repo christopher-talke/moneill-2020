@@ -1,14 +1,47 @@
-import React from "react"
+import React, { useState } from "react"
+import gql from 'graphql-tag'
+import { Mutation } from 'react-apollo';
 import styled from "styled-components"
 
 import Button from "./Button"
 
 const ContactForm = () => {
+
+  const [fullName, setFullName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [message, setMessage] = useState('');
+
+  const resetForm = () => {
+    setFullName('')
+    setEmail('')
+    setPhoneNumber('')
+    setMessage('')
+  };
+  
   return (
     <StyledContactSection id="contact-me">
       <h3>Get in touch with me</h3>
 
-      <StyledContactForm action="" method="post">
+      <Mutation mutation={ENQUIRY_MUTATION}>
+        {(createSubmission, { loading, error, data }) => (
+          <>
+
+      <StyledContactForm 
+        onSubmit={async event => {
+              event.preventDefault()
+              createSubmission({
+                variables: {
+                  clientMutationId: 'enquiry-submission',
+                  fullName,
+                  email,
+                  phoneNumber,
+                  message
+                }
+              })
+              resetForm()
+            }}
+        >
         <div className="form-input-group">
           <label htmlFor="fullName">Full Name</label>
           <input
@@ -16,6 +49,10 @@ const ContactForm = () => {
             name="fullName"
             type="text"
             placeholder="Full Name..."
+            value={fullName}
+            onChange={ e => {
+              setFullName(e.target.value)
+            }}
           />
         </div>
         <div className="form-input-group">
@@ -25,6 +62,10 @@ const ContactForm = () => {
             name="email"
             type="text"
             placeholder="Email Address..."
+            value={email}
+            onChange={ e => {
+              setEmail(e.target.value)
+            }}
           />
         </div>
         <div className="form-input-group">
@@ -34,6 +75,10 @@ const ContactForm = () => {
             name="phoneNumber"
             type="text"
             placeholder="Landline or Mobile Number..."
+            value={phoneNumber}
+            onChange={ e => {
+              setPhoneNumber(e.target.value)
+            }}
           />
         </div>
         <div className="form-input-group">
@@ -44,10 +89,17 @@ const ContactForm = () => {
             cols="30"
             rows="10"
             placeholder="Insert your enquiry here..."
-          ></textarea>
+            onChange={ e => {
+              setMessage(e.target.value)
+            }}
+          >{message}</textarea>
         </div>
         <Button dark>Submit Enquiry</Button>
       </StyledContactForm>
+
+      </>
+      )}
+      </Mutation>
     </StyledContactSection>
   )
 }
@@ -112,5 +164,14 @@ const StyledContactForm = styled.form`
   @media (min-width: 1025px) {
     margin: 0 auto;
     max-width: 450px;
+  }
+`
+
+const ENQUIRY_MUTATION = gql`
+  mutation CreateEnquiryMutation($clientMutationId: String!, $fullName: String!, $email: String!, $phoneNumber: String!, $message: String!){
+    createEnquiry(input: {clientMutationId: $clientMutationId, fullName: $fullName, email: $email, phoneNumber: $phoneNumber, message: $message}) {
+      data
+      success
+    }
   }
 `
