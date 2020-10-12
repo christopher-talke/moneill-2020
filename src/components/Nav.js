@@ -9,7 +9,7 @@ const Nav = ({ opacity, toHome }) => {
 
   return (
     <StyledNav>
-      <div id="logo">Mark O'Neill</div>
+      {/* <div id="logo">Mark O'Neill</div> */}
       <div>
         {toHome ? (
           <Link to="/">
