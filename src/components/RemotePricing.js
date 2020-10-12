@@ -17,7 +17,12 @@ const RemotePricing = ({ data }) => {
           <StyledPricingCard key={`${value.title}-${index}`}>
             <div>
               <h3>{value.title}</h3>
-              <h5>${value.price} (USD)</h5>
+              {console.log(value.price)}
+              {value.price === 0 || value.price === null ? (
+                <h5>Price Upon Application (PoA)</h5>
+              ) : (
+                <h5>${value.price} (USD)</h5>
+              )}
             </div>
             <div
               className="preBlurb"
@@ -35,11 +40,18 @@ const RemotePricing = ({ data }) => {
               className="preBlurb"
               dangerouslySetInnerHTML={{ __html: value.postblurb }}
             />
-            <a
-              href={`https://www.paypal.com/cgi-bin/webscr?business=mark@chamberlaincottage.com&cmd=_xclick&currency_code=USD&amount=${value.price}&item_name=${value.title}`}
-            >
-              <Button dark>Book Session</Button>
-            </a>
+
+            {value.price === 0 || value.price === null ? (
+              <a href="#contact-me">
+                <Button dark>Contact Me</Button>
+              </a>
+            ) : (
+              <a
+                href={`https://www.paypal.com/cgi-bin/webscr?business=mark@chamberlaincottage.com&cmd=_xclick&currency_code=USD&amount=${value.price}&item_name=${value.title}`}
+              >
+                <Button dark>Book Session</Button>
+              </a>
+            )}
           </StyledPricingCard>
         ))}
       </div>
