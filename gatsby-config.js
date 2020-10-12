@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env`,
+})
+
 module.exports = {
   plugins: [
     {
@@ -8,7 +12,7 @@ module.exports = {
       options: {
         typeName: "WP",
         fieldName: "wp",
-        url: `https://admin.markoneill.com.au/graphql`,
+        url: `${process.env.WORDPRESS_URL}/graphql`,
         refetchInterval: 30,
       },
     },
