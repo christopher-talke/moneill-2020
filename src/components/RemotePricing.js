@@ -55,6 +55,7 @@ const RemotePricing = ({ data }) => {
           </StyledPricingCard>
         ))}
       </div>
+
       <p className="pricing-info">
         All pricing is inclusive of package handling and shipping. Methods of
         shipping vary depending on requirements, we typically operate with

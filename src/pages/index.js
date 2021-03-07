@@ -6,6 +6,7 @@ import Treatments from "../components/Treatments"
 import Feedback from "../components/Feedback"
 import Informational from "../components/Informational"
 import RemotePricing from "../components/RemotePricing"
+import PayOnline from "../components/PayOnline"
 
 export default ({ data }) => {
   const {
@@ -22,6 +23,7 @@ export default ({ data }) => {
       <Feedback data={homeClientFeedback} />
       <Informational data={homeInformationalSection} />
       <RemotePricing data={homeRemoteSupportPricing} />
+      <PayOnline />
     </Layout>
   )
 }

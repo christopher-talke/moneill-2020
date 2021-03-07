@@ -15,11 +15,7 @@ const Nav = ({ opacity, toHome }) => {
           <Link to="/">
             <Button dark>Home</Button>
           </Link>
-        ) : (
-          <Link to="/pay-online">
-            <Button dark>Pay Online</Button>
-          </Link>
-        )}
+        ) : ""}
       </div>
     </StyledNav>
   )

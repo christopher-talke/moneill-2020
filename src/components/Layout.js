@@ -17,8 +17,8 @@ const Layout = ({ children, toHome }) => {
         />
       </Helmet>
       <GlobalStyle />
+      <Notification />
       <main>
-        <Notification />
         <Nav toHome={toHome} />
         <div id="main-content">{children}</div>
         <Footer />
@@ -37,7 +37,7 @@ const GlobalStyle = createGlobalStyle`
     min-height: 100vh;
     font-family: 'Open Sans', sans-serif;
     background: white;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     scroll-behavior: smooth;
   }
 
