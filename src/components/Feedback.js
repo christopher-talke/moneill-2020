@@ -28,13 +28,13 @@ const StyledFeedback = styled.section`
   z-index: 50;
   padding: 0 25px;
   margin-bottom: 100px;
-  width: 100%;
 
   .client-feedback-card {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 35px;
+    margin: 25px 0;
     border: 1px solid #eaeaea;
     text-align: center;
     background: white;

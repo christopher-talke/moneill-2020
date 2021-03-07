@@ -99,6 +99,10 @@ const StyledPricingCards = styled.section`
     margin-bottom: 75px;
   }
 
+  .pricingCards:nth-of-type(2) {
+    margin-bottom: 25px;
+  }
+
   @media (min-width: 1025px) {
     max-width: 950px;
 
