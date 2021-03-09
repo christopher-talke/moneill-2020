@@ -1,21 +1,44 @@
 import React from "react"
 import styled from "styled-components"
+import Slider from "react-slick";
 
 const Feedback = ({ data }) => {
+
+  const SliderSettings = {
+    arrows: false,
+    autoplay: true,
+    infinite: true,
+    autoplaySpeed: 5000,
+    draggable:false,
+    speed: 1000,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    initialSlide: 2,
+    centerPadding: '15px',
+    responsive: [
+      {
+        breakpoint: 450,
+        settings: {
+          fade: true,
+        }
+      }
+    ]
+  };
+
   return (
     <StyledFeedback>
       <div className="feedback-container">
-        {data.clientfeedback.map((client, key) => (
-          <div
-            // Temporary Only
-            style={key > 2 ? { display: "none" } : {}}
+        <Slider {...SliderSettings}>
+          {data.clientfeedback.map((client, key) => (
+            <div
             className="client-feedback-card"
             key={`${client.fullname}-${key}`}
-          >
-            <p>"{client.feedback}"</p>
-            <h5>{client.fullname}</h5>
-          </div>
-        ))}
+            >
+              <p>"{client.feedback}"</p>
+              <h5>{client.fullname}</h5>
+            </div>
+          ))}
+        </Slider>
       </div>
     </StyledFeedback>
   )
@@ -26,15 +49,20 @@ export default Feedback
 const StyledFeedback = styled.section`
   position: relative;
   z-index: 50;
-  padding: 0 25px;
+  /* padding: 0 25px; */
   margin-bottom: 100px;
 
+  .slick-slide {
+    text-align: center;
+  }
+
   .client-feedback-card {
+    max-width: calc(100vw - 30px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 35px;
-    margin: 25px 0;
+    padding: 35px 0px;
+    margin: 25px auto;
     border: 1px solid #eaeaea;
     text-align: center;
     background: white;
@@ -46,6 +74,7 @@ const StyledFeedback = styled.section`
       font-style: italic;
       font-weight: 300;
       font-size: 16px;
+      padding: 35px;
     }
 
     h5 {
@@ -61,17 +90,13 @@ const StyledFeedback = styled.section`
     padding: 0;
 
     .feedback-container {
-      display: grid;
-      grid-template-rows: 1fr;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      grid-column-gap: 20px;
-      grid-row-gap: 0px;
       max-width: 1150px;
       margin: 0 auto;
     }
 
     .client-feedback-card {
-      min-width: 275px;
+      max-width: calc(100% - 60px);
+      height: 100%;
 
       p {
         font-size: 14px;

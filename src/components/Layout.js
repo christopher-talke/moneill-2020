@@ -5,7 +5,8 @@ import Nav from "./Nav"
 import Footer from "./Footer"
 import Notification from "./Notification"
 
-import "react-responsive-carousel/lib/styles/carousel.min.css"
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
 const Layout = ({ children, toHome }) => {
   return (
