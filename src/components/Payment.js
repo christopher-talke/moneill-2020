@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 
 import Button from "../components/Button"
@@ -7,27 +7,58 @@ const Payment = () => {
   const [currency, setCurrency] = useState("AUD")
   const [amount, setAmount] = useState("0.00")
   const [description, setDescription] = useState("")
+  const [requested, setRequested] = useState(false)
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    const paramCurrency = params.get("currency")
+    const paramAmount = params.get("amount")
+    const paramDescription = params.get("description")
+    const paramRequested = params.get("requested")
+
+    setCurrency(paramCurrency || "")
+    setAmount(paramAmount || "")
+    setDescription(paramDescription || "")
+    setRequested(paramRequested === "true" ? true : false)
+  }, [])
 
   return (
     <StyledPayment>
-      <p>
-        Have we recently had a discussion regarding a service, or a product
-        order? Feel free to enter in the amount you wish to pay, once ready
-        click the button to proceed to PayPal to make your payment.
-      </p>
+      {requested ? (
+        <>
+          <p>
+            Thank you for contacting me recently, as per our conversation please
+            see below the agreed upon payment amount and description for my
+            services / products.
+          </p>
+          <p>
+            If you have any questions please do not hestitate to get in touch!
+          </p>
+        </>
+      ) : (
+        <p>
+          Have we recently had a discussion regarding a service, or a product
+          order? Feel free to enter in the amount you wish to pay, once ready
+          click the button to proceed to PayPal to make your payment.
+        </p>
+      )}
 
       <div className="payment-container">
         <div>
-          <label htmlFor="currency">Select Your Currency (Default: AUD)</label>
+          <label htmlFor="currency">
+            {requested
+              ? "Payment Currency"
+              : "Select Your Currency (Default: AUD)"}
+          </label>
           <div>
             <button
-              onClick={() => setCurrency("AUD")}
+              onClick={() => (requested ? "" : setCurrency("AUD"))}
               className={currency === "AUD" && "active"}
             >
               AUD
             </button>
             <button
-              onClick={() => setCurrency("USD")}
+              onClick={() => (requested ? "" : setCurrency("USD"))}
               className={currency === "USD" && "active"}
             >
               USD
@@ -36,12 +67,15 @@ const Payment = () => {
         </div>
 
         <div>
-          <label htmlFor="amount">Enter Your Payment Amount</label>
+          <label htmlFor="amount">
+            {requested ? "Your Payment Amount" : "Enter Your Payment Amount"}
+          </label>
           <div>
             <input
               type="number"
               value={amount}
-              onChange={e => setAmount(e.target.value)}
+              onChange={e => (requested ? "" : setAmount(e.target.value))}
+              disabled={requested}
             />
           </div>
         </div>
@@ -53,7 +87,9 @@ const Payment = () => {
               type="text"
               name="description"
               placeholder="Enter a description for your payment here"
-              onChange={e => setDescription(e.target.value)}
+              value={description}
+              onChange={e => (requested ? "" : setDescription(e.target.value))}
+              disabled={requested}
             >
               {description}
             </textarea>
@@ -73,8 +109,8 @@ const Payment = () => {
         </a>
       </div>
       <p>
-        Alternatively, you can get in touch with me first before proceeding with
-        a payment (see below contact form).
+        Again, if you have any questions please get in touch with me first
+        before proceeding with a payment (see below contact form).
       </p>
     </StyledPayment>
   )
@@ -90,7 +126,7 @@ const StyledPayment = styled.section`
   p {
     max-width: 475px;
     margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 15px;
   }
 
   .payment-container {
@@ -151,6 +187,12 @@ const StyledPayment = styled.section`
       width: 250px;
       height: 100px;
       resize: none;
+    }
+
+    input:disabled,
+    textarea:disabled {
+      background: #efefef;
+      cursor: not-allowed;
     }
   }
 `

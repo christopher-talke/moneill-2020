@@ -1,7 +1,6 @@
 <?php
 
 /** Custom Scripts for GraphQL Submissions  **/
-
 add_action('graphql_register_types', function() {
 	
 	register_graphql_mutation('createEnquiry', [
