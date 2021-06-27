@@ -5,13 +5,16 @@ import Nav from "./Nav"
 import Footer from "./Footer"
 import Notification from "./Notification"
 
-import "slick-carousel/slick/slick.css"; 
-import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
 
 const Layout = ({ children, toHome }) => {
   return (
     <>
-      <Helmet title="[Mark O'Neill]" defer={false}>
+      <Helmet
+        title="Mark O'Neill | Australian based Intuitive Herbalist, Clairvoyant, Medium, Counsellor and Hypnotherapist"
+        defer={false}
+      >
         <link
           href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap"
           rel="stylesheet"
