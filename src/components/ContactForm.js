@@ -1,48 +1,46 @@
-import React, { useState } from "react"
-import gql from 'graphql-tag'
-import { Mutation } from 'react-apollo';
+import React from "react"
+import gql from "graphql-tag"
+// import { Mutation } from "react-apollo"
 import styled from "styled-components"
 
 import Button from "./Button"
 
 const ContactForm = () => {
+  // const [fullName, setFullName] = useState("")
+  // const [email, setEmail] = useState("")
+  // const [phoneNumber, setPhoneNumber] = useState("")
+  // const [message, setMessage] = useState("")
 
-  const [fullName, setFullName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const [message, setMessage] = useState('');
+  // const resetForm = () => {
+  //   setFullName("")
+  //   setEmail("")
+  //   setPhoneNumber("")
+  //   setMessage("")
+  // }
 
-  const resetForm = () => {
-    setFullName('')
-    setEmail('')
-    setPhoneNumber('')
-    setMessage('')
-  };
-  
   return (
     <StyledContactSection id="contact-me">
       <h3>Get in touch with me</h3>
 
-      <Mutation mutation={ENQUIRY_MUTATION}>
-        {(createSubmission, { loading, error, data }) => (
-          <>
-
-      <StyledContactForm 
-        onSubmit={async event => {
-              event.preventDefault()
-              createSubmission({
-                variables: {
-                  clientMutationId: 'enquiry-submission',
-                  fullName,
-                  email,
-                  phoneNumber,
-                  message
-                }
-              })
-              resetForm()
-            }}
+      {/* <Mutation mutation={ENQUIRY_MUTATION}>
+        {(createSubmission, { loading, error, data }) => ( */}
+      <>
+        <StyledContactForm
+          onSubmit={async event => {
+            event.preventDefault()
+            // createSubmission({
+            //   variables: {
+            //     clientMutationId: 'enquiry-submission',
+            //     fullName,
+            //     email,
+            //     phoneNumber,
+            //     message
+            //   }
+            // })
+            // resetForm()
+          }}
         >
-        <div className="form-input-group">
+          {/* <div className="form-input-group">
           <label htmlFor="fullName">Full Name</label>
           <input
             id="fullName"
@@ -93,13 +91,17 @@ const ContactForm = () => {
               setMessage(e.target.value)
             }}
           >{message}</textarea>
-        </div>
-        <Button dark>Submit Enquiry</Button>
-      </StyledContactForm>
-
+        </div> */}
+          <a href="mailto:mark@chamberlaincottage.com&subject=New Enquiry&body=Hi Mark,">
+            Email Me: mark@chamberlaincottage.com
+          </a>
+          {/* <a href="mailto:mark@chamberlaincottage.com">
+            <Button dark>Email Me</Button>
+          </a> */}
+        </StyledContactForm>
       </>
-      )}
-      </Mutation>
+      {/* )}
+      </Mutation> */}
     </StyledContactSection>
   )
 }
@@ -168,8 +170,22 @@ const StyledContactForm = styled.form`
 `
 
 const ENQUIRY_MUTATION = gql`
-  mutation CreateEnquiryMutation($clientMutationId: String!, $fullName: String!, $email: String!, $phoneNumber: String!, $message: String!){
-    createEnquiry(input: {clientMutationId: $clientMutationId, fullName: $fullName, email: $email, phoneNumber: $phoneNumber, message: $message}) {
+  mutation CreateEnquiryMutation(
+    $clientMutationId: String!
+    $fullName: String!
+    $email: String!
+    $phoneNumber: String!
+    $message: String!
+  ) {
+    createEnquiry(
+      input: {
+        clientMutationId: $clientMutationId
+        fullName: $fullName
+        email: $email
+        phoneNumber: $phoneNumber
+        message: $message
+      }
+    ) {
       data
       success
     }

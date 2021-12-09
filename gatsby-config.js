@@ -12,7 +12,7 @@ module.exports = {
       options: {
         typeName: "WP",
         fieldName: "wp",
-        url: `${process.env.WORDPRESS_URL}/graphql`,
+        url: `${process.env.WORDPRESS_URL}/?graphql=true`,
         refetchInterval: 30,
       },
     },
